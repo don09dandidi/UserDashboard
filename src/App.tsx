@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { AppLayout } from './components/layout/AppLayout';
+import { BrowserChrome } from './components/layout/BrowserChrome';
 import { Login } from './pages/auth/Login';
 import { Register } from './pages/auth/Register';
 import { ForgotPassword } from './pages/auth/ForgotPassword';
@@ -16,6 +17,7 @@ export default function App() {
   return (
     <AppProvider>
       <BrowserRouter>
+        <BrowserChrome>
         <Routes>
           {/* Auth */}
           <Route path="/login" element={<Login />} />
@@ -36,6 +38,7 @@ export default function App() {
           {/* Default */}
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
+        </BrowserChrome>
       </BrowserRouter>
     </AppProvider>
   );
